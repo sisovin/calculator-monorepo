@@ -1,108 +1,168 @@
 # Calculator Monorepo
 
-## Root Setup
-- Initialize monorepo with `pnpm init`
-- Create `pnpm-workspace.yaml` with workspace configuration
-- Add Turborepo (`pnpm add -Dw turbo`)
-- Create `turbo.json` with pipeline configuration
-- Set up shared `README.md` with project documentation
+A monorepo for a modular and scalable calculator project designed to simplify development and deployment. This repository organizes the calculator functionality into a monorepo structure, making it easier to manage shared code, utilities, and services across multiple packages or applications.
 
-## Packages Setup
-- Create `packages/types` with shared TypeScript types
-- Create `packages/config` with shared configuration
-- Create `packages/schemas` with Zod validation schemas
-- Create `packages/database` with Prisma shared types
+## Table of Contents
 
-## Frontend (Next.js)
-### Initial Setup
-- Create Next.js app with TypeScript and Tailwind
-- Initialize shadcn-ui components
-- Set up ESLint and Prettier configuration
-- Configure path aliases in `tsconfig.json`
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Tech Stack](#tech-stack)
+4. [Project Structure](#project-structure)
+5. [Installation](#installation)
+6. [Usage](#usage)
+7. [Development](#development)
+8. [Contributing](#contributing)
+9. [License](#license)
 
-### Core Components
-- Implement `Header` component
-- Implement `Footer` component
-- Implement `Search` component
-- Set up theme provider
+---
 
-### Calculator Components
-- Create `CalculatorCard` component
-- Create `CalculatorCategory` component
-- Create `CalculatorForm` component with shadcn-ui
-- Implement form validation with Zod
+## Overview
 
-### Pages Structure
-- Set up main `(main)` layout group
-  - Implement homepage (`page.tsx`)
-  - Create calculators landing page
-  - Set up category pages (`[category]/page.tsx`)
-  - Implement calculator pages (`[category]/[calculator]/page.tsx`)
-- Set up `(auth)` layout group for authentication
+The **Calculator Monorepo** is a TypeScript-based project that provides a modular approach to building calculator-related applications, libraries, and utilities. This repository leverages a monorepo structure to centralize development, testing, and deployment for all calculator-related components.
 
-### Configuration
-- Create `calculator-config.ts` with all calculator metadata
-- Set up `site.ts` with site-wide configuration
-- Configure global styles (`globals.css`)
+### Key Objectives
+- Maintainability: Modular structure ensures that each part of the project is self-contained and easy to maintain.
+- Scalability: Supports adding new calculator features or modules without disrupting existing functionality.
+- Reusability: Shared code and utilities are centralized, reducing redundancy across the project.
 
-### Utilities
-- Create custom hooks in `hooks/` directory
-- Set up utility functions in `lib/`
-- Implement API route handlers if needed
+---
 
-## Backend (Nest.js)
-### Initial Setup
-- Create Nest.js application
-- Configure Prisma ORM
-- Set up PostgreSQL database connection
-- Configure Argon2 for password hashing
-- Set up global validation pipes
+## Features
 
-### Modules
-- Implement `AuthModule`
-  - Create auth controller
-  - Implement auth service
-  - Set up JWT strategy
-  - Create DTOs for auth endpoints
-- Implement `CalculatorsModule`
-  - Create calculator controller
-  - Implement calculator service with all calculation logic
-  - Create DTOs for calculator inputs
-- Implement `UsersModule`
-  - Create user controller
-  - Implement user service
-  - Set up user entity and DTOs
+- **Modular Design**: Organized into separate packages for core functionality, utilities, and shared components.
+- **TypeScript-first**: Ensures type safety and modern JavaScript practices.
+- **Cross-platform Compatibility**: Works in browser, Node.js, and other environments.
+- **Shell Scripting**: Includes shell scripts for automation and deployment tasks.
+- **Comprehensive Testing Suite**: Ensures robustness and reliability of calculator features.
 
-### Database
-- Define Prisma schema (`schema.prisma`)
-- Implement `PrismaService`
-- Set up database migrations
-- Create seed script for initial data
+---
 
-### Testing
-- Set up E2E test configuration
-- Write tests for auth endpoints
-- Write tests for calculator endpoints
+## Tech Stack
 
-## Shared Configuration
-- Set up shared types for calculator inputs/results
-- Configure shared validation schemas
-- Implement shared database types
-- Set up consistent ESLint config across packages
+This project uses the following technologies:
 
-## Deployment Setup
-- Configure Dockerfiles for frontend and backend
-- Configure environment variables
-- Prepare production build scripts
+- **Language**: TypeScript (96% of the codebase)
+- **Scripting**: Shell (2.5% of the codebase)
+- **Other Tools**: For configuration and auxiliary tasks.
 
-## Documentation
-- Document API endpoints
-- Create component documentation
-- Write setup instructions for development
-- Document database schema
+---
 
-## Additional Features
-- Implement calculator history saving
-- Add user favorites functionality
-- Set up analytics tracking
-- Implement dark mode toggle
+## Project Structure
+
+The repository is organized into the following structure:
+
+```
+calculator-monorepo/
+├── packages/
+│   ├── core/              # Core calculator logic and operations
+│   ├── ui/                # UI components for the calculator (if applicable)
+│   ├── api/               # API for calculator as a service
+│   ├── shared/            # Shared utilities and libraries
+├── scripts/               # Shell scripts for automation
+├── tests/                 # End-to-end and integration tests
+├── .github/               # GitHub workflows and issue templates
+├── docs/                  # Documentation files
+├── package.json           # Root package.json for dependency management
+└── README.md              # Project documentation
+```
+
+---
+
+## Installation
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [Yarn](https://yarnpkg.com/) (preferred package manager)
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/sisovin/calculator-monorepo.git
+   cd calculator-monorepo
+   ```
+
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
+
+3. Setup environment variables:
+   Create a `.env` file in the root directory and configure it based on the provided `.env.example` file.
+
+---
+
+## Usage
+
+### Running Locally
+
+1. Start the core calculator service:
+   ```bash
+   cd packages/core
+   yarn start
+   ```
+
+2. (Optional) Start the API service:
+   ```bash
+   cd packages/api
+   yarn start
+   ```
+
+3. (Optional) Start the UI components:
+   ```bash
+   cd packages/ui
+   yarn start
+   ```
+
+---
+
+## Development
+
+### Code Formatting
+
+This project uses **Prettier** and **ESLint** for code formatting and linting. Run the following to fix linting issues:
+```bash
+yarn lint --fix
+```
+
+### Tests
+
+To run tests:
+```bash
+yarn test
+```
+
+---
+
+## Contributing
+
+We welcome contributions to the **Calculator Monorepo**! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+5. Open a Pull Request.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Contact
+
+For questions or support, please contact the repository owner at [sisovin](https://github.com/sisovin).
+
+--- 
