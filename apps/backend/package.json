@@ -1,0 +1,51 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend service for the calculator application",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.0",
+    "@nestjs/core": "^8.0.0",
+    "@nestjs/jwt": "^8.0.0",
+    "@nestjs/passport": "^8.0.0",
+    "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/prisma": "^1.0.0",
+    "@nestjs/swagger": "^5.0.0",
+    "@prisma/client": "^3.0.0",
+    "argon2": "^0.28.0",
+    "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.0.0",
+    "@nestjs/schematics": "^8.0.0",
+    "@nestjs/testing": "^8.0.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.0",
+    "@types/passport-jwt": "^3.0.0",
+    "@types/supertest": "^2.0.0",
+    "jest": "^27.0.0",
+    "prettier": "^2.0.0",
+    "supertest": "^6.0.0",
+    "ts-jest": "^27.0.0",
+    "ts-loader": "^9.0.0",
+    "ts-node": "^10.0.0",
+    "tsconfig-paths": "^3.0.0",
+    "typescript": "^4.0.0"
+  }
+}
